@@ -11,4 +11,4 @@ run:
 	./bin/main
 
 clean:
-	rm build\*
+	rm build/**
