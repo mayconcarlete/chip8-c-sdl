@@ -49,6 +49,19 @@ int main(int argc, char **argv)
     chip8_clear_screen(&chip8.screen);
     chip8_load(&chip8, buf, size);
 
+    // chip8.registers.PC = 0;
+    // chip8.registers.V[0] = 0x010;
+    // chip8.registers.V[1] = 0x010;
+    chip8.registers.V[9] = 0x08;
+    chip8.registers.V[10] = 0x07;
+    printf("\nValor de R9: %x\n", chip8.registers.V[9]);
+    printf("\nValor de R10: %x\n", chip8.registers.V[10]);
+
+    chip8_exec(&chip8, 0x89a5);
+    printf("\nValue carry flag: %x\n", chip8.registers.V[0x0f]);
+    printf("\nValor de R9: %x\n", chip8.registers.V[9]);
+    printf("\nValor de R10: %x\n", chip8.registers.V[10]);
+   
     chip8_screen_draw_sprite(&chip8.screen, 62, 30, &chip8.memory.memory[0x00], 5);
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_Window *window = SDL_CreateWindow(
@@ -132,9 +145,9 @@ int main(int argc, char **argv)
             chip8.registers.sound_timer -= 10;
         }
         unsigned short opcode = chip8_memory_get_short(&chip8.memory, chip8.registers.PC);
-        chip8_exec(&chip8, opcode);
-        chip8.registers.PC += 2;
-        printf("\n%x", opcode);
+        // chip8.registers.PC += 2;
+        // chip8_exec(&chip8, opcode);
+        // printf("\n%x", opcode);
     }
 out:
     SDL_DestroyWindow(window);
