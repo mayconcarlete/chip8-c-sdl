@@ -10,8 +10,7 @@ struct chip8_screen {
 
 void chip8_set_screen(struct chip8_screen* screen, int x, int y);
 bool chip8_screen_is_set(struct chip8_screen* screen, int x, int y);
+bool chip8_screen_draw_sprite(struct chip8_screen* screen, int x, int y, const char* sprite, int num);
 
-void chip8_clear_screen(struct chip8_screen* screen){
-    memset(screen->pixels, 0, sizeof(screen->pixels));
-}
+void chip8_clear_screen(struct chip8_screen* screen);
 #endif
