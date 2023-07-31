@@ -277,7 +277,7 @@ static void chip8_exec_extended(struct chip8* chip8, unsigned short opcode){
 
         // 2nnn - CALL addr - Call addrs - Call subroutine at nnn.
         case 0x2000:
-            chip8_stack_push(&chip8, chip8->registers.PC);
+            chip8_stack_push(chip8, chip8->registers.PC);
             chip8->registers.PC = nnn;
         break;
 
@@ -392,7 +392,7 @@ void chip8_exec(struct chip8 *chip8, unsigned short opcode)
 
         // Return from a subroutine.
         case 0x00EE:
-            chip8->registers.PC = chip8_stack_pop(&chip8);
+            chip8->registers.PC = chip8_stack_pop(chip8);
         break;
 
         default:
