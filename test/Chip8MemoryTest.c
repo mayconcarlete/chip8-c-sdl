@@ -21,7 +21,7 @@ void test_chip8_set_memory(void){
 }
 
 TEST_LIST = {
-    {"struct chip8_memory* create_chip8_memory", test_create_chip8_memory},
-    {"unsigned char set_chip8_memory(struct Chip8Memory* memory, int index, unsigned char value)", test_chip8_set_memory},
+    {"create_chip8_memory", test_create_chip8_memory},
+    {"set_chip8_memory", test_chip8_set_memory},
     {0}
 };
