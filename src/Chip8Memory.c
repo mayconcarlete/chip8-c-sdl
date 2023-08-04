@@ -10,5 +10,10 @@ void free_chip8_memory(struct Chip8Memory* memory){
     free(memory);
 }
 
-// unsigned char set_memory(struct chip8_memory* memory, int index, unsigned char value){}
-// unsigned char get_memory(struct chip8_memory* memory, int index){}
+unsigned char set_chip8_memory(struct Chip8Memory* memory, int index, unsigned char value){
+    memory->memory[index] = value;
+    return memory->memory[index];
+}
+unsigned char get_chip8_memory(struct Chip8Memory* memory, int index){
+    return memory->memory[index];
+}   
